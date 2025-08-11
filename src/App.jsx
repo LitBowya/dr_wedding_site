@@ -1,4 +1,3 @@
-
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
@@ -12,6 +11,7 @@ import PhotoGallery from './sections/PhotoGallery';
 import Cast from './sections/Cast';
 import PhotographyOrder from './sections/PhotographyOrder';
 import Footer from './sections/Footer';
+import InstallPWAButton from './components/InstallPWAButton';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -22,6 +22,7 @@ const App = () => {
   return (
     <div className="min-h-screen bg-dark text-white overflow-hidden dart-background">
       <Navigation />
+      <InstallPWAButton />
 
       <main className="relative z-10">
         <section id="hero">
