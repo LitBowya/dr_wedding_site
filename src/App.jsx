@@ -5,6 +5,7 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 // Components
 import Navigation from './components/Navigation';
+import PWAInstallButton from './components/PWAInstallButton';
 import Hero from './sections/Hero';
 import About from './sections/About';
 import WeddingDetails from './sections/WeddingDetails';
@@ -186,6 +187,7 @@ const App = () => {
       <div ref={addToDartBoardsRef} className="dart-board dart-board-center"></div>
 
       <Navigation />
+      <PWAInstallButton />
 
       <main className="relative z-10">
         <section id="hero">
