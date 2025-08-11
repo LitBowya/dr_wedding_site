@@ -61,7 +61,7 @@ const InstallPWAButton = () => {
       </button>
 
       {isIos && showIosModal && (
-        <div className="fixed inset-0 bg-black/70 z-[100] flex items-center justify-center p-4" onClick={closeIosModal}>
+        <div className="fixed inset-0 bg-white z-[100] flex items-center justify-center p-4" onClick={closeIosModal}>
           <div className="bg-dark border-2 border-gold/50 rounded-3xl p-8 max-w-sm w-full text-center relative" onClick={(e) => e.stopPropagation()}>
             <button onClick={closeIosModal} className="absolute top-4 right-4 text-white hover:text-gold">
               <X className="w-6 h-6" />
