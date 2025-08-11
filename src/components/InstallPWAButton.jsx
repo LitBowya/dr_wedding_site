@@ -53,7 +53,7 @@ const InstallPWAButton = () => {
     <>
       <button
         onClick={handleInstallClick}
-        className="fixed bottom-4 right-4 z-50 flex items-center gap-3 px-4 py-3 bg-gold text-wine rounded-full shadow-2xl hover:bg-wine hover:text-gold transition-all duration-300 transform hover:scale-105 animate-bounce"
+        className="fixed bg-white bottom-4 right-4 z-50 flex items-center gap-3 px-4 py-3 bg-gold text-wine rounded-full shadow-2xl hover:bg-wine hover:text-gold transition-all duration-300 transform hover:scale-105 animate-bounce"
         aria-label="Install App"
       >
         <ArrowDownToLine className="w-6 h-6" />
