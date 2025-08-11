@@ -86,65 +86,6 @@ body {
   background-color: var(--dark-surface);
 }
 
-/* Dart board background */
-.dart-background {
-  position: relative;
-  background-color: var(--dark-bg);
-  overflow: hidden;
-}
-
-.dart-board {
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    var(--dart-cream) 10%,
-    var(--dart-black) 10%, var(--dart-black) 20%,
-    var(--dart-red) 20%, var(--dart-red) 30%,
-    var(--dart-black) 30%, var(--dart-black) 40%,
-    var(--dart-green) 40%, var(--dart-green) 50%,
-    var(--dart-black) 50%, var(--dart-black) 60%,
-    var(--dart-red) 60%, var(--dart-red) 70%,
-    var(--dart-black) 70%, var(--dart-black) 80%,
-    var(--dart-green) 80%, var(--dart-green) 90%,
-    var(--dart-black) 90%
-  );
-  opacity: 0.1;
-  filter: blur(5px);
-  z-index: 0;
-}
-
-.dart-board-top-left {
-  top: -300px;
-  left: -300px;
-}
-
-.dart-board-top-right {
-  top: -300px;
-  right: -300px;
-}
-
-.dart-board-bottom-left {
-  bottom: -300px;
-  left: -300px;
-}
-
-.dart-board-bottom-right {
-  bottom: -300px;
-  right: -300px;
-}
-
-.dart-board-center {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.05;
-  width: 800px;
-  height: 800px;
-}
-
 /* Stronger gradients for dark mode */
 .bg-wine-gold-gradient {
   background: linear-gradient(135deg, var(--wine), var(--gold));
@@ -268,25 +209,7 @@ body {
 }
 
 /* New modern animations */
-@keyframes dartSpin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
-@keyframes dartPulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.1;
-  }
-  50% {
-    transform: scale(1.05);
-    opacity: 0.15;
-  }
-}
 
 @keyframes slideInLeft {
   0% {
@@ -342,13 +265,6 @@ body {
 }
 
 /* Animation utility classes */
-.animate-dartSpin {
-  animation: dartSpin 60s linear infinite;
-}
-
-.animate-dartPulse {
-  animation: dartPulse 8s ease-in-out infinite;
-}
 
 .animate-slideInLeft {
   animation: slideInLeft 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;

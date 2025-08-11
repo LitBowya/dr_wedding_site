@@ -1,66 +1,11 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Heart, Instagram, Facebook, Mail, Phone, MapPin, Calendar } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
+import { Heart, Phone, MapPin, Calendar } from 'lucide-react';
 
 const Footer = () => {
-  const footerRef = useRef(null);
-  const contentRef = useRef(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Footer content animation
-      gsap.fromTo(contentRef.current,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.5,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: footerRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-
-      // Social icons romantic animation
-      const socialIcons = contentRef.current?.querySelectorAll('.social-icon');
-      if (socialIcons) {
-        gsap.fromTo(socialIcons,
-          { opacity: 0, scale: 0, rotation: 180 },
-          {
-            opacity: 1,
-            scale: 1,
-            rotation: 0,
-            duration: 0.8,
-            ease: "back.out(1.7)",
-            stagger: 0.15,
-            scrollTrigger: {
-              trigger: contentRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
-            }
-          }
-        );
-      }
-
-    }, footerRef);
-
-    return () => ctx.revert();
-  }, []);
 
   return (
-    <footer ref={footerRef} className="relative bg-gradient-to-br from-wine via-dark-wine to-wine text-white overflow-hidden">
-      {/* Romantic background elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-20 w-40 h-40 bg-gold rounded-full blur-3xl animate-goldSparkle"></div>
-        <div className="absolute bottom-20 right-20 w-60 h-60 bg-light-gold rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gold rounded-full blur-3xl"></div>
-      </div>
+    <footer  className="relative text-white overflow-hidden">
 
       {/* Floating love elements */}
       <div className="absolute inset-0 pointer-events-none">
@@ -70,7 +15,7 @@ const Footer = () => {
         <div className="absolute bottom-20 right-1/3 text-light-gold text-4xl opacity-20 animate-loveAtmosphere" style={{animationDelay: '9s'}}>♥</div>
       </div>
 
-      <div ref={contentRef} className="relative z-10 max-w-6xl mx-auto px-4 py-16">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 py-16">
         {/* Main Footer Content */}
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Couple Info */}

@@ -1,247 +1,8 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Heart, Target, Sparkles, ArrowRight, Calendar } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
+import { Target, Sparkles, ArrowRight, Calendar } from 'lucide-react';
+
 
 const About = () => {
-  const sectionRef = useRef(null);
-  const davidCardRef = useRef(null);
-  const ruthCardRef = useRef(null);
-  const titleRef = useRef(null);
-  const storyRef = useRef(null);
-  const timelineRef = useRef(null);
-  const timelineItemsRef = useRef([]);
-  const dartboardRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Dartboard animation
-      const dartboard = dartboardRef.current;
-      const rings = dartboard.querySelectorAll('.dart-ring');
-
-      gsap.set(rings, { 
-        opacity: 0,
-        scale: 0.8
-      });
-
-      gsap.to(rings, {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        stagger: 0.1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: dartboard,
-          start: "top 80%",
-          toggleActions: "play none none reverse"
-        }
-      });
-
-      // Rotate dartboard continuously
-      gsap.to(dartboard, {
-        rotation: 360,
-        duration: 120,
-        repeat: -1,
-        ease: "none"
-      });
-
-      // Title animation with modern reveal
-      gsap.fromTo(titleRef.current,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: titleRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-
-      // David's card animation with 3D effect
-      gsap.fromTo(davidCardRef.current,
-        { 
-          opacity: 0, 
-          x: -50, 
-          rotationY: 15, 
-          transformPerspective: 1000 
-        },
-        {
-          opacity: 1,
-          x: 0,
-          rotationY: 0,
-          duration: 1.5,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: davidCardRef.current,
-            start: "top 75%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-
-      // Ruth's card animation with 3D effect
-      gsap.fromTo(ruthCardRef.current,
-        { 
-          opacity: 0, 
-          x: 50, 
-          rotationY: -15, 
-          transformPerspective: 1000 
-        },
-        {
-          opacity: 1,
-          x: 0,
-          rotationY: 0,
-          duration: 1.5,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: ruthCardRef.current,
-            start: "top 75%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-
-      // Love story animation with staggered text reveal
-      gsap.fromTo(storyRef.current,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: storyRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-
-      // Animate the quote with shimmer effect
-      gsap.to(storyRef.current.querySelector('.quote-text'), {
-        backgroundPosition: '200% center',
-        duration: 4,
-        repeat: -1,
-        ease: "linear",
-        delay: 1
-      });
-
-      // Timeline animation
-      gsap.fromTo(timelineRef.current,
-        { opacity: 0, y: 60 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: timelineRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-
-      // Timeline items staggered animation
-      timelineItemsRef.current.forEach((item, index) => {
-        gsap.fromTo(item,
-          { 
-            opacity: 0, 
-            x: index % 2 === 0 ? -30 : 30,
-            y: 20
-          },
-          {
-            opacity: 1,
-            x: 0,
-            y: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            delay: 0.2 * index,
-            scrollTrigger: {
-              trigger: timelineRef.current,
-              start: "top 70%",
-              toggleActions: "play none none reverse"
-            }
-          }
-        );
-      });
-
-      // Enhanced hover effects for cards
-      [davidCardRef.current, ruthCardRef.current].forEach(card => {
-        card.addEventListener('mouseenter', () => {
-          gsap.to(card, {
-            y: -15,
-            scale: 1.03,
-            boxShadow: '0 25px 50px rgba(0,0,0,0.2), 0 0 20px rgba(212, 175, 55, 0.3)',
-            duration: 0.4,
-            ease: "power2.out"
-          });
-
-          // Animate the photo
-          const photo = card.querySelector('.profile-photo');
-          gsap.to(photo, {
-            scale: 1.1,
-            duration: 0.5,
-            ease: "power2.out"
-          });
-
-          // Animate the sparkles
-          const sparkles = card.querySelectorAll('.sparkle');
-          gsap.to(sparkles, {
-            scale: 1.5,
-            opacity: 1,
-            rotation: 180,
-            duration: 0.4,
-            stagger: 0.1
-          });
-        });
-
-        card.addEventListener('mouseleave', () => {
-          gsap.to(card, {
-            y: 0,
-            scale: 1,
-            boxShadow: '0 15px 30px rgba(0,0,0,0.15), 0 0 10px rgba(212, 175, 55, 0.2)',
-            duration: 0.4,
-            ease: "power2.out"
-          });
-
-          // Reset the photo
-          const photo = card.querySelector('.profile-photo');
-          gsap.to(photo, {
-            scale: 1,
-            duration: 0.5,
-            ease: "power2.out"
-          });
-
-          // Reset the sparkles
-          const sparkles = card.querySelectorAll('.sparkle');
-          gsap.to(sparkles, {
-            scale: 1,
-            opacity: 0.7,
-            rotation: 0,
-            duration: 0.4,
-            stagger: 0.1
-          });
-        });
-      });
-
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  const addToTimelineItemsRef = (el) => {
-    if (el && !timelineItemsRef.current.includes(el)) {
-      timelineItemsRef.current.push(el);
-    }
-  };
-
   // Timeline data
   const timelineEvents = [
     {
@@ -272,23 +33,15 @@ const About = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="relative py-24 px-4 dart-background overflow-hidden">
-      {/* Dartboard background element */}
-      <div ref={dartboardRef} className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/3 opacity-10 pointer-events-none">
-        <div className="dart-ring w-[800px] h-[800px] rounded-full border-8 border-gold/20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="dart-ring w-[600px] h-[600px] rounded-full border-8 border-wine/20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="dart-ring w-[400px] h-[400px] rounded-full border-8 border-gold/20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="dart-ring w-[200px] h-[200px] rounded-full border-8 border-wine/20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="dart-ring w-[100px] h-[100px] rounded-full bg-gold/20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-      </div>
+    <section className="relative py-24 px-4 dart-background overflow-hidden">
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Title with modern design */}
-        <div ref={titleRef} className="text-center mb-20">
+        <div className="text-center mb-20">
           <div className="inline-block px-6 py-2 rounded-full bg-gold/10 border border-gold/30 mb-4">
-            <p className="text-gold text-sm uppercase tracking-widest font-medium">
-              About Us
-            </p>
+            <h2 className="text-3xl md:text-6xl text-white">
+              About
+            </h2>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6">
             Our <span className="text-gold">Love Story</span>
@@ -304,7 +57,6 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-24">
           {/* David's Card */}
           <div
-            ref={davidCardRef}
             className="glass-modern-gold rounded-3xl p-8 shadow-xl border border-gold/30 transition-all duration-300"
           >
             {/* Profile photo */}
@@ -340,7 +92,6 @@ const About = () => {
 
           {/* Ruth's Card */}
           <div
-            ref={ruthCardRef}
             className="glass-modern-gold rounded-3xl p-8 shadow-xl border border-gold/30 transition-all duration-300"
           >
             {/* Profile photo */}
@@ -376,7 +127,7 @@ const About = () => {
         </div>
 
         {/* Love Story Timeline */}
-        <div ref={timelineRef} className="mb-24">
+        <div className="mb-24">
           <div className="glass-modern-gold rounded-3xl p-8 md:p-12 shadow-xl border border-gold/30">
             <div className="flex items-center gap-4 mb-12">
               <div className="w-14 h-14 rounded-full bg-dark-gold-gradient flex items-center justify-center shadow-lg">
@@ -401,7 +152,6 @@ const About = () => {
                 {timelineEvents.map((event, index) => (
                   <div 
                     key={index}
-                    ref={addToTimelineItemsRef}
                     className={`relative flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-start gap-8`}
                   >
                     {/* Timeline dot */}
@@ -428,7 +178,6 @@ const About = () => {
 
         {/* Quote Section */}
         <div
-          ref={storyRef}
           className="max-w-4xl mx-auto text-center mb-8"
         >
           <div className="glass-modern-gold rounded-3xl p-8 md:p-12 shadow-xl border border-gold/30 relative overflow-hidden">

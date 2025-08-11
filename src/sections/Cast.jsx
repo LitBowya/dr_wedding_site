@@ -1,68 +1,9 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import { Crown, Users, Camera, Music, Gift, Coffee } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
 
 const Cast = () => {
-  const sectionRef = useRef(null);
-  const titleRef = useRef(null);
-  const castGroupsRef = useRef([]);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Title animation
-      gsap.fromTo(titleRef.current,
-        { opacity: 0, y: 50, scale: 0.9 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1.5,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: titleRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-
-      // Cast groups stagger animation
-      castGroupsRef.current.forEach((group) => {
-        if (group) {
-          const cards = group.querySelectorAll('.cast-card');
-          gsap.fromTo(cards,
-            { opacity: 0, y: 80, scale: 0.8, rotationY: 15 },
-            {
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              rotationY: 0,
-              duration: 1.2,
-              ease: "back.out(1.7)",
-              stagger: 0.1,
-              scrollTrigger: {
-                trigger: group,
-                start: "top 80%",
-                toggleActions: "play none none reverse"
-              }
-            }
-          );
-        }
-      });
-
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  const addToCastRefs = (el) => {
-    if (el && !castGroupsRef.current.includes(el)) {
-      castGroupsRef.current.push(el);
-    }
-  };
 
   const castData = [
     {
@@ -141,7 +82,7 @@ const Cast = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="relative py-24 px-4 dart-background overflow-hidden">
+    <section className="relative py-24 px-4 dart-background overflow-hidden">
       {/* Background romantic elements */}
       <div className="absolute inset-0 pointer-events-none opacity-15">
         <div className="absolute top-20 right-20 w-40 h-40 bg-wine rounded-full blur-3xl"></div>
@@ -160,10 +101,7 @@ const Cast = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Title */}
         <div className="text-center mb-16">
-          <h2
-            ref={titleRef}
-            className="text-4xl md:text-5xl font-serif text-wine mb-6"
-          >
+          <h2 className="text-3xl md:text-6xl text-white">
             Wedding Cast
           </h2>
           <div className="flex items-center justify-center gap-4">
@@ -181,7 +119,6 @@ const Cast = () => {
           {castData.map((group, groupIndex) => (
             <div
               key={groupIndex}
-              ref={addToCastRefs}
               className="max-w-6xl mx-auto"
             >
               {/* Group Header */}
