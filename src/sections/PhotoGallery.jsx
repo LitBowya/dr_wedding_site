@@ -9,11 +9,11 @@ const PhotoGallery = () => {
   const photos = [
     { id: 1, category: 'Couple', image: '/images/couple1.webp', size: 'square' },
     { id: 2, category: 'Couple', image: '/images/couple2.webp', size: 'wide' },
-    { id: 3, category: 'Couple', image: '/images/couple3.webp', size: 'square' },
+    { id: 3, category: 'Couple', image: '/images/couple7.webp', size: 'square' },
     { id: 4, category: 'Couple', image: '/images/couple4.webp', size: 'square' },
     { id: 5, category: 'Couple', image: '/images/couple5.webp', size: 'wide' },
     { id: 6, category: 'Couple', image: '/images/couple6.webp', size: 'square' },
-    { id: 7, category: 'Couple', image: '/images/couple7.webp', size: 'square' },
+    { id: 7, category: 'Couple', image: '/images/couple3.webp', size: 'square' },
     { id: 8, category: 'Couple', image: '/images/couple8.webp', size: 'wide' },
     { id: 9, category: 'Couple', image: '/images/couple9.webp', size: 'square' }
   ];

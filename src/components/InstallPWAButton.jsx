@@ -45,10 +45,6 @@ const InstallPWAButton = () => {
     setShowIosModal(false);
   };
 
-  if (!prompt && !isIos) {
-    return null;
-  }
-
   return (
     <>
       <button
