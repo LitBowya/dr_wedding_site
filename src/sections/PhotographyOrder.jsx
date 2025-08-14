@@ -8,16 +8,17 @@ const PhotographyOrder = () => {
     { id: 0, title: "Couple Alone", icon: Heart, special: true },
     { id: 1, title: "Officiating Minister Mr. Odonkor", icon: Crown },
     { id: 2, title: "Chairman Mr. Larwer", icon: Crown },
-    { id: 3, title: "Mothers of the couple", icon: Heart },
-    { id: 4, title: "Mr Eric Glover and Mr Anna Addo", icon: Users },
-    { id: 5, title: "Groom's family", icon: Users },
-    { id: 6, title: "Bride's family", icon: Users },
-    { id: 7, title: "Groom's men and bride's maid", icon: Heart },
-    { id: 8, title: "Lebanon Dangme Congregation", icon: Users },
-    { id: 9, title: "CEO of SIV engineering and colleagues", icon: Users },
-    { id: 10, title: "CEO of AkorfaGH and colleagues", icon: Users },
-    { id: 11, title: "Friends of the groom", icon: Users },
-    { id: 12, title: "Friends of the bride", icon: Users }
+    { id: 3, title: "Registrar Mr.Frimong-Eduful", icon: Crown },
+    { id: 4, title: "Mothers of the couple", icon: Heart },
+    { id: 5, title: "Mr Eric Glover and Mr Anna Addo", icon: Users },
+    { id: 6, title: "Groom's family", icon: Users },
+    { id: 7, title: "Bride's family", icon: Users },
+    { id: 8, title: "Groom's men and bride's maid", icon: Heart },
+    { id: 9, title: "Lebanon Dangme Congregation", icon: Users },
+    { id: 10, title: "CEO of SIV engineering and colleagues", icon: Users },
+    { id: 11, title: "CEO of AkorfaGH and colleagues", icon: Users },
+    { id: 12, title: "Friends of the groom", icon: Users },
+    { id: 13, title: "Friends of the bride", icon: Users }
   ];
 
 

@@ -13,6 +13,7 @@ const Cast = () => {
       members: [
         { role: "Officiating Minister", name: "David Odonkor" },
         { role: "Chairman", name: "Joseph Larwer" },
+        { role: "Registrar", name: "Enock Yaw Frimpong-Eduful" },
         { role: "Program Director", name: "Enoch McCarthy Emmanuel Adusu" }
       ]
     },
